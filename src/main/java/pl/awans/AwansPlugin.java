@@ -30,6 +30,8 @@ public class AwansPlugin extends JavaPlugin {
         lp.getEventBus().subscribe(this, UserPromoteEvent.class, this::onPromote);
         lp.getEventBus().subscribe(this, UserDemoteEvent.class, this::onDemote);
 
+        getServer().getPluginManager().registerEvents(new ListaListener(), this);
+
         AwansujCommand awansuj = new AwansujCommand("promote", "awans");
         getCommand("awansuj").setExecutor(awansuj);
         getCommand("awansuj").setTabCompleter(awansuj);
