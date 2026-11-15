@@ -26,11 +26,12 @@ public class AwansPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         LuckPerms lp = LuckPermsProvider.get();
         lp.getEventBus().subscribe(this, UserPromoteEvent.class, this::onPromote);
         lp.getEventBus().subscribe(this, UserDemoteEvent.class, this::onDemote);
 
-        getServer().getPluginManager().registerEvents(new ListaListener(), this);
+        getServer().getPluginManager().registerEvents(new ListaListener(this), this);
 
         AwansujCommand awansuj = new AwansujCommand("promote", "awans");
         getCommand("awansuj").setExecutor(awansuj);

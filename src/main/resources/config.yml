@@ -1,0 +1,6 @@
+# Napis pod nazwa serwera na liscie serwerow (MOTD). Dwie linie.
+# Kolory: &c, &l itd. oraz hex &#RRGGBB (tak jak w prefiksach LuckPerms).
+# Po zmianie zrestartuj serwer.
+motd:
+  linia1: "&#FF0000&lTWOJ SERWER &7- &fwitamy!"
+  linia2: "&7Zapraszamy na najlepszy serwer"
