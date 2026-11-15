@@ -3,3 +3,16 @@ version: 1.0.0
 main: pl.awans.AwansPlugin
 api-version: "1.20"
 depend: [LuckPerms]
+commands:
+  awansuj:
+    description: Awansuje gracza w sciezce (jak /lp user <nick> promote <sciezka>)
+    usage: /awansuj <nick> <sciezka>
+    permission: awansuj.use
+  degraduj:
+    description: Degraduje gracza w sciezce (jak /lp user <nick> demote <sciezka>)
+    usage: /degraduj <nick> <sciezka>
+    permission: awansuj.use
+permissions:
+  awansuj.use:
+    description: Pozwala uzywac /awansuj i /degraduj
+    default: op

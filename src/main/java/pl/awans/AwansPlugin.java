@@ -29,13 +29,21 @@ public class AwansPlugin extends JavaPlugin {
         LuckPerms lp = LuckPermsProvider.get();
         lp.getEventBus().subscribe(this, UserPromoteEvent.class, this::onPromote);
         lp.getEventBus().subscribe(this, UserDemoteEvent.class, this::onDemote);
+
+        AwansujCommand awansuj = new AwansujCommand("promote", "awans");
+        getCommand("awansuj").setExecutor(awansuj);
+        getCommand("awansuj").setTabCompleter(awansuj);
+
+        AwansujCommand degraduj = new AwansujCommand("demote", "degradację");
+        getCommand("degraduj").setExecutor(degraduj);
+        getCommand("degraduj").setTabCompleter(degraduj);
     }
 
     private void onPromote(UserPromoteEvent event) {
         String groupName = event.getGroupTo().orElse(null);
         if (groupName == null) return;
 
-        Component mainTitle = Component.text("AWANS", NamedTextColor.GOLD, TextDecoration.BOLD);
+        Component mainTitle = Component.text("AWANS", NamedTextColor.GREEN, TextDecoration.BOLD);
         Component subTitle = Component.text(String.valueOf(event.getUser().getUsername()), NamedTextColor.YELLOW)
                 .append(Component.text(" awansował na rangę ", NamedTextColor.GRAY))
                 .append(rankComponent(groupName));
